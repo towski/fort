@@ -43,13 +43,13 @@
 </head>
 <body>
 <div>
-	<div class='inline-block' sstyle='postion:absolute; top: 10px; left:20px; width:20%'>
+	<div class='inline-block'>
 		<img src='http://i.imgur.com/bRRWgjU.gif' />
 		<h6>Repositories</h6>
 		<ul style='font-size:12px; line-height:1.5em; padding:0;'>
 			<li>
-				<strong>blog</strong><br/>
-				<span>git clone git://towski.no-ip.biz/blog.git &nbsp; &nbsp; &nbsp; </span>
+				<strong>this blog</strong><br/>
+				<span>git clone git://towski.no-ip.biz/fort.git &nbsp; &nbsp; &nbsp; </span>
 			</li>
 			<li>
 				<strong>ruby code hacks</strong><br/>
@@ -70,44 +70,12 @@
 				}
 			</script>
 		<ul id='thoughts' style='list-style:none; padding-left:40px;'>
-			<li id='thought-6' >
-				<p class='thought-text'>
-					Rebuilding the dream of a decentralized web http://towski.no-ip.biz/journals/20140202.html
-				</p>
-				<a title="2014-02-03T00:25:17Z"></a>
-				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-6'); return false">Share</a>
-			</li>
-			<li id='thought-5' >
-				<p class='thought-text'>
-					Congratulations Seattle. You saved me from watching the rest of the game.
-				</p>
-				<a title="2014-02-02T16:40:17Z"></a>
-				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-5'); return false">Share</a>
-			</li>
-			<li id='thought-4' >
-				<p class='thought-text'>
-					We should probably start referring to tweets by their original name: thoughts
-				</p>
-				<a title="2014-02-02T15:04:17Z"></a>
-				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-4'); return false">Share</a>
-			</li>
-			<li id='thought-3' >
-			<p class='thought-text'>
-				More updates to my megafortress. It now tweets, serves code, and kills post-apocalyptic junkies. http://towski.no-ip.biz/
-			</p>
-			<a title="2014-02-02T14:56:17Z"></a>
-			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-3'); return false">Share</a>
-			</li>
-			<li id='thought-2' >
-			<p class='thought-text'>Time to start decentralizing the web</p>
-			<a title="2014-02-02T14:50:17Z"></a>
-			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-2'); return false">Share</a>
-			</li>
-			<li id='thought-1' >
-			<p class='thought-text'>Diary dates now go backwards! ----></p>
+			<script src='/javascripts/thoughts.js'></script>
+			<!--li id='thought-1' >
+			<p class='thought-text'>Diary dates now go backwards! -></p>
 			<a title="2014-02-02T13:24:17Z"></a>
 			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-1'); return false">Share</a>
-			</li>
+			</li-->
 		</ul>
 	</div>
 	<div id='month_td' class='inline-block' style='text-align:center; padding-left: 60px; width: 20%;'>
@@ -143,19 +111,6 @@
 <div style='position:absolute; width:10px; top: 0px;left:0px; height:422px; z-index: 10; background: white'></div>
 <div style='position:absolute; width:10px; top: 0px;left:210px; height:422px; z-index: 10; background: white'></div>
 <script>
-	function clickShare(button1, thought_id){
-		var thought = document.getElementById(thought_id);
-		var text = thought.querySelector('p')
-		if(document.location.hostname == "localhost"){
-			button1.setAttribute('data-text', text.innerText)
-		} else {
-			button1.setAttribute('data-text', "RT @towski " + text.innerText)
-		}
-		setupButton()
-	}
-	function setupButton(){
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-	}
 
 	function prettyLinks(){
     var links = document.getElementsByTagName("a");
@@ -168,6 +123,20 @@
 		}
 	}
 	prettyLinks();
+	function prevent_unload(){
+		window.onbeforeunload = function() {  return false }
+	}
+
+	function query(xpath, callback){
+		var results = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+		for ( var i=0 ; i < results.snapshotLength; i++ ) {
+			if(callback){
+			  callback(results.snapshotItem(i))
+			} else {
+				console.log(results.snapshotItem(i))
+			}
+		}
+	}
 </script>
 </body>
 </html>

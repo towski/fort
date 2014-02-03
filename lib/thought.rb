@@ -1,29 +1,24 @@
-require 'bdb'
+require 'sbdb'
+
+DB_INIT_CDB = 64
 
 class Thought
-	@@env = Bdb::Env.new(0)
+	@@env = SBDB::Env.new File.join(File.dirname(__FILE__), '../db'), SBDB::CREATE | SBDB::Env::INIT_MPOOL | DB_INIT_CDB
 
-	ENV_FLAGS =  Bdb::DB_CREATE |    # Create the environment if it does not already exist.
-							 Bdb::DB_INIT_TXN  | # Initialize transactions
-							 Bdb::DB_INIT_LOCK | # Initialize locking.
-							 Bdb::DB_INIT_LOG  | # Initialize logging
-							 Bdb::DB_INIT_MPOOL  # Initialize the in-memory cache.
+	def self.env
+		@@env
+	end
 
-	@@env.open(File.join(File.dirname(__FILE__), '../db'), ENV_FLAGS, 0);
-	def self.connection
-		@@db ||= begin
-			db = @@env.db
-			db.open(nil, 'thoughts.db', nil, Bdb::Db::BTREE, Bdb::DB_CREATE | Bdb::DB_AUTO_COMMIT, 0)    
-			db
-		end
+	def self.db
+		@@db ||= env.btree 'thoughts.db', :flags => SBDB::CREATE
 	end
 
 	def self.head
-		(connection.get(nil, 'head', nil, 0) || 1).to_i
+		(db['head'] || 1).to_i
 	end
 
 	def self.head=(int)
-		connection.put(nil, 'head', int.to_s, 0)
+		db['head'] = int.to_s
 	end
 
 	def self.current
@@ -32,19 +27,20 @@ class Thought
 
 	def self.increment
 		self.head = self.head + 1
-	end
+	end 
 
 	def self.insert(data, id = head)
-		id = id.to_s
-		txn = @@env.txn_begin(nil, 0)
-		connection.put(txn, id, data.to_s, 0)
-		txn.commit(0)
+		db[id] = data
 		self.increment
 		id
 	end
 
+	def self.delete(id)
+		db[id.to_s] = nil
+	end
+
 	def self.find(id)
-		connection.get(nil, id.to_s, nil, 0)
+		db[id.to_s]
 	end
 
 	def self.last(int = nil)
@@ -57,3 +53,6 @@ class Thought
 		end
 	end
 end
+
+Signal.trap 'EXIT', Thought.env.method(:close)
+Signal.trap 'EXIT', Thought.db.method(:close)

@@ -31,45 +31,6 @@ function request_call(td, i, next_date){
 	request.send()
 }
 
-function get_current_thought(get_thought){
-var ul = document.getElementById('thoughts')
-ul.innerHTML = ""
-	var request = new XMLHttpRequest()
-	var url = '/thoughts/current'
-	request.open('get', url) 
-	request.onload = function() {
-		if (this.status == 200 || this.status == 304){ 
-			var last_thought = parseInt(this.responseText)
-			var iterator = last_thought
-			while(iterator > last_thought - 5){
-				get_thought(iterator)
-				iterator -= 1
-			}
-		}
-	}
-	request.send()
-}
-
-function get_thought(i){
-	var ul = document.getElementById('thoughts')
-	var li = document.createElement('li')//		<li id='thought-5' >
-	li.id = 'thought-' + i
-	ul.appendChild(li)
-	var p = document.createElement('p')//		<li id='thought-5' >
-	li.appendChild(p)
-	var request = new XMLHttpRequest()
-	var url = '/thoughts/' + pad(i, 10)
-	request.open('get', url) 
-	request.onload = function() {
-		if (this.status == 200 || this.status == 304){ 
-			var text = this.responseText
-			text = text.replace(/^text=/,'')
-			text = text.replace(/\+/g,' ')
-			p.innerHTML = decodeURI(text)
-		}
-	}
-	request.send()
-}
 
 function build_calendar(month, year, object){
 	var today = new Date()

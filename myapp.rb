@@ -30,13 +30,13 @@ class MyApp < Sinatra::Base
 	end
 
 	get '/triforce/thoughts' do
-		Thought.last
+		Thought.last(10).to_json
 	end
 
 	post '/triforce/thoughts' do
-		rdebug
 		hash = env['rack.request.form_hash']
 		hash['time'] = Time.now
+		hash['id'] = Thought.id
 		Thought.insert hash.to_json
 		redirect to('http://localhost/')
 	end
