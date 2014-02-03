@@ -1,0 +1,77 @@
+I, [2014-02-02T20:20:48.707878 #4557]  INFO -- : unlinking existing socket=/home/towski/code/triforce/tmp/sockets/unicorn.sock
+I, [2014-02-02T20:20:48.708013 #4557]  INFO -- : listening on addr=/home/towski/code/triforce/tmp/sockets/unicorn.sock fd=18
+I, [2014-02-02T20:20:48.708087 #4557]  INFO -- : worker=0 spawning...
+I, [2014-02-02T20:20:48.709217 #4557]  INFO -- : master process ready
+I, [2014-02-02T20:20:48.709987 #4559]  INFO -- : worker=0 spawned pid=4559
+I, [2014-02-02T20:20:48.710280 #4559]  INFO -- : Refreshing Gem list
+I, [2014-02-02T20:20:48.791119 #4559]  INFO -- : worker=0 ready
+I, [2014-02-02T20:21:00.440578 #4557]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2014-02-02T20:21:00.451636 #4557]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2014-02-02T20:21:21.279629 #4557]  INFO -- : reaped #<Process::Status: pid 4559 exit 0> worker=0
+I, [2014-02-02T20:21:21.279902 #4557]  INFO -- : master complete
+I, [2014-02-02T20:21:28.712441 #4567]  INFO -- : unlinking existing socket=/home/towski/code/triforce/tmp/sockets/unicorn.sock
+I, [2014-02-02T20:21:28.712561 #4567]  INFO -- : listening on addr=/home/towski/code/triforce/tmp/sockets/unicorn.sock fd=18
+I, [2014-02-02T20:21:28.712629 #4567]  INFO -- : worker=0 spawning...
+I, [2014-02-02T20:21:28.713340 #4567]  INFO -- : master process ready
+I, [2014-02-02T20:21:28.713865 #4569]  INFO -- : worker=0 spawned pid=4569
+I, [2014-02-02T20:21:28.713990 #4569]  INFO -- : Refreshing Gem list
+I, [2014-02-02T20:21:28.790680 #4569]  INFO -- : worker=0 ready
+/home/towski/code/triforce/myapp.rb:15
+redirect to('http://localhost/')
+
+[10, 19] in /home/towski/code/triforce/myapp.rb
+   10    end
+   11  
+   12  	post '/upload/?' do
+   13  debugger
+   14  		#File.open('public/thoughts/current','w')
+=> 15  		redirect to('http://localhost/')
+   16  	end
+   17  end
+(rdb:1) I, [2014-02-02T20:22:02.317094 #4567]  INFO -- : reaped #<Process::Status: pid 4569 exit 0> worker=0
+I, [2014-02-02T20:22:02.317350 #4567]  INFO -- : master complete
+I, [2014-02-02T20:22:24.265495 #4589]  INFO -- : unlinking existing socket=/home/towski/code/triforce/tmp/sockets/unicorn.sock
+I, [2014-02-02T20:22:24.265612 #4589]  INFO -- : listening on addr=/home/towski/code/triforce/tmp/sockets/unicorn.sock fd=18
+I, [2014-02-02T20:22:24.265680 #4589]  INFO -- : worker=0 spawning...
+I, [2014-02-02T20:22:24.266448 #4589]  INFO -- : master process ready
+I, [2014-02-02T20:22:24.266913 #4592]  INFO -- : worker=0 spawned pid=4592
+I, [2014-02-02T20:22:24.267208 #4592]  INFO -- : Refreshing Gem list
+{:inner_app=>MyApp}
+I, [2014-02-02T20:22:24.347791 #4592]  INFO -- : worker=0 ready
+I, [2014-02-02T20:23:00.000335 #4589]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2014-02-02T20:23:00.010800 #4589]  INFO -- : SIGWINCH ignored because we're not daemonized
+/home/towski/code/triforce/myapp.rb:15
+redirect to('http://localhost/')
+
+[10, 19] in /home/towski/code/triforce/myapp.rb
+   10    end
+   11  
+   12  	post '/upload/?' do
+   13  debugger
+   14  		#File.open('public/thoughts/current','w')
+=> 15  		redirect to('http://localhost/')
+   16  	end
+   17  end
+(rdb:1) 
+(rdb:1) 
+(rdb:1) 
+(rdb:1) 
+(rdb:1) 
+(rdb:1) I, [2014-02-02T20:23:10.961352 #4589]  INFO -- : reaped #<Process::Status: pid 4592 exit 0> worker=0
+I, [2014-02-02T20:23:10.961710 #4589]  INFO -- : master complete
+{:inner_app=>MyApp}
+/home/towski/code/triforce/myapp.rb:10
+s = Sender.new
+
+[5, 14] in /home/towski/code/triforce/myapp.rb
+   5  Debugger.start
+   6  
+   7  class MyApp < Sinatra::Base
+   8    get '/triforce/?' do
+   9  		debugger
+=> 10  		s = Sender.new
+   11  		result = s.get
+   12  		puts result
+   13    end
+   14  
+(rdb:1) 4

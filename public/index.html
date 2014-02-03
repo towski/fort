@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Towski's portal</title>
+<style>
+  body {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+  }
+  #body {
+  }
+	.month_day {
+		border: 1px solid;
+		width: 26px;
+		height: 26px;
+		text-align:center;
+	}
+	.blank_day {
+		width: 28px;
+		height: 26px;
+	}
+	td.today {
+		border: 1px solid magenta;
+	}
+	#thoughts {
+		border-bottom: 1px solid #ccc;
+	}
+	#thoughts li {
+		border-top: 1px solid #ccc;
+		padding: 5px;
+		line-height: 1.4em;
+	}
+	#thoughts li a{
+		font-size: 12px;
+	}
+	.inline-block {
+		display: inline-block;
+		vertical-align:top;
+	}
+	.twenty-five-perc {
+		width: 24%;
+	}
+</style>
+</head>
+<body>
+<div>
+	<div class='inline-block' sstyle='postion:absolute; top: 10px; left:20px; width:20%'>
+		<img src='http://i.imgur.com/bRRWgjU.gif' />
+		<h6>Repositories</h6>
+		<ul style='font-size:12px; line-height:1.5em; padding:0;'>
+			<li>
+				<strong>blog</strong><br/>
+				<span>git clone git://towski.no-ip.biz/blog.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
+			<li>
+				<strong>ruby code hacks</strong><br/>
+				<span>git clone git://towski.no-ip.biz/ruby-0.49.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
+		</ul>
+	</div>
+	<div class='inline-block ' style=' width: 35%;'>
+		<h4 style='text-align:center'>Thoughts</h4>
+			<form id='thought_form' style='display:none; text-align:center;' method="post" action="/triforce/thoughts">
+				<input name='body' type='text' />
+				<input type='submit'/>
+			</form>
+			<script>
+				if(document.location.hostname == "localhost"){
+					document.getElementById('thought_form').style.display = "block"
+					
+				}
+			</script>
+		<ul id='thoughts' style='list-style:none; padding-left:40px;'>
+			<li id='thought-6' >
+				<p class='thought-text'>
+					Rebuilding the dream of a decentralized web http://towski.no-ip.biz/journals/20140202.html
+				</p>
+				<a title="2014-02-03T00:25:17Z"></a>
+				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-6'); return false">Share</a>
+			</li>
+			<li id='thought-5' >
+				<p class='thought-text'>
+					Congratulations Seattle. You saved me from watching the rest of the game.
+				</p>
+				<a title="2014-02-02T16:40:17Z"></a>
+				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-5'); return false">Share</a>
+			</li>
+			<li id='thought-4' >
+				<p class='thought-text'>
+					We should probably start referring to tweets by their original name: thoughts
+				</p>
+				<a title="2014-02-02T15:04:17Z"></a>
+				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-4'); return false">Share</a>
+			</li>
+			<li id='thought-3' >
+			<p class='thought-text'>
+				More updates to my megafortress. It now tweets, serves code, and kills post-apocalyptic junkies. http://towski.no-ip.biz/
+			</p>
+			<a title="2014-02-02T14:56:17Z"></a>
+			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-3'); return false">Share</a>
+			</li>
+			<li id='thought-2' >
+			<p class='thought-text'>Time to start decentralizing the web</p>
+			<a title="2014-02-02T14:50:17Z"></a>
+			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-2'); return false">Share</a>
+			</li>
+			<li id='thought-1' >
+			<p class='thought-text'>Diary dates now go backwards! ----></p>
+			<a title="2014-02-02T13:24:17Z"></a>
+			<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-1'); return false">Share</a>
+			</li>
+		</ul>
+	</div>
+	<div id='month_td' class='inline-block' style='text-align:center; padding-left: 60px; width: 20%;'>
+		<script src='/javascripts/calendar.js'></script>
+		<script src='/javascripts/pretty.js'></script>
+	</div>
+
+	<div class='inline-block' style='text-align:right; width: 20%;'>
+		<img src='output.jpg' />
+		<p style='font-size:12px'>
+		The latest from my camera <a href='/raw_images/'>(all)</a>
+		</p>
+		<h4 style='margin-top:50px'>Posts</h4>
+		<ul style='list-style:none'>
+			<!--li><a href='/serious/memento.html'>Memento</a></li-->
+			<li><a href='/serious/there_and_back_again.html'>There and back again</a></li>
+			<li><a href='/serious/dont_die_on_me.html'>Don't Die on Me</a></li>
+		</ul>
+	</div>
+</div>
+
+<div style='font-size:12px; margin-top:230px;'> <!--position:absolute; bottom: 10px; font-size:12px; margin: 0 auto; width: 100%' >-->
+<center>
+<p>This is hosted on my computer running Debian, with <a href='http://no-ip.com/'>No-IP</a>, port forwarding, and nginx.</p>
+<p>I mean, how hard is it to type out (an ugly) web page manually?  </p>
+<p>Contact me on twitter <a href='http://twitter.com/towski'>towski</a> or email <a href="mailto:towski@gmail.com">towski at gmail</a></p>
+<p><a href='http://www.last.fm/user/towski'>last.fm</a> | <a href="https://www.facebook.com/thegreatTowski">Facebook</a> | <a href="https://www.github.com/towski">Github</a> | <a href="http://www.flickr.com/photos/towski">Flickr</a> | <a href="http://www.reddit.com/user/towski">Reddit</a> | 
+<a href='http://jimmyr.com'>Aggregate</a>
+</p>
+</center>
+</div>
+
+<div style='position:absolute; width:10px; top: 0px;left:0px; height:422px; z-index: 10; background: white'></div>
+<div style='position:absolute; width:10px; top: 0px;left:210px; height:422px; z-index: 10; background: white'></div>
+<script>
+	function clickShare(button1, thought_id){
+		var thought = document.getElementById(thought_id);
+		var text = thought.querySelector('p')
+		if(document.location.hostname == "localhost"){
+			button1.setAttribute('data-text', text.innerText)
+		} else {
+			button1.setAttribute('data-text', "RT @towski " + text.innerText)
+		}
+		setupButton()
+	}
+	function setupButton(){
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	}
+
+	function prettyLinks(){
+    var links = document.getElementsByTagName("a");
+    for ( var i = 0; i < links.length; i++ ){
+      if ( links[i].title ) {
+          var date = prettyDate(links[i].title);
+          if ( date )
+           links[i].innerHTML = date;
+			}
+		}
+	}
+	prettyLinks();
+</script>
+</body>
+</html>

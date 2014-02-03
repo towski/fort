@@ -1,0 +1,12 @@
+*Wasp*
+*wasp*
+raw_output*
+rawoutput*
+output.jpg
+raw_images/*
+db/*
+!db/.keep
+tmp/sockets/unicorn.sock
+tmp/pids/unicorn.pid
+*swp
+.gitold

@@ -1,0 +1,56 @@
+<html>
+<head>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 1)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>For some perverse reason I spent most of the day reading the C code for Ruby. I decided to start with the very
+first version of ruby code available, 0.49. I had to fix a few basic coding conventions, but got it mostly working.
+It's a pretty old version of Ruby, but it was pretty good at showing me the C internals. I thought some stuff
+wasn't working, but it's just figuring out what Objects I can create, and why the error output is somewhat broken.</p>
+
+<p>I was interested in learning Go, but I figured I would start with C, since online Go is listed as somewhat C compatible. 
+Being an ardent Ruby lover, I was trying to see if I could make ruby more like go. Probably not a simple task,
+but it was really fun to learn GDB and dig around in the ruby internals. Seeing how it creates hashes for methods,
+and how it goes through the yy nodes, whatever that means. Bison and yak or something?</p>
+
+<p>Went for a walk around the Mission, and actually felt pretty good. Not sure why I am enjoying reading C code
+so much. I guess I never really got to take the time to look around at it. And since people seem to think
+so lowly of Ruby's concurrency state, I'll probably mess around with Go some eventually. Really I want to 
+rewrite Ruby in Go, but I don't even know if that makes sense, since Ruby is already in C. </p>

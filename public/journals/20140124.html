@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Saturday, January 24th, 2014</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Saturday, January 24rd</h1>
+
+<p>I had a big dream for today. I wanted to share the data from my phone to my computer, so that even if I'm travelling,
+my computer can still host this web site through my phones data. This lead me through a few turns, like rooting my phone. And
+I also explored doing peer-to-peer from my phone.</p>
+
+<p>
+I can't believe I waited so long to root my phone. It basically felt like a rite of passage. An initiation into the world of mobile hacking. 
+Suddenly realizing your phone is just another linux machine is pretty fantastic.
+I have an HTC One+, and after digging around for a bit, I found instructions
+from <a href='http://theunlockr.com/2013/06/23/how-to-root-the-htc-one-x-att/'>Unlockr</a>. For the first step, I needed to 
+add some rules to udev so that my computer would talk to my phone properly. After restarting into the boot screen, then I ran the steps
+from <a href='http://www.htcdev.com/bootloader'>htcdev</a>. Took a little digging to find the AIO file <a href='http://www.hasoon2000.info/?developer=One%20X%20Plus'>here</a>, which I ran in my Windows Virtual Box. I am amazed at how useful those installations from <a href='https://github.com/xdissent/ievms'>ievms</a> are. Windows handled the usb stuff mostly correctly, and I managed to root my phone, after booting the leet recovery image, it all seemed to work quite normally.</p>
+
+<p>Unfortunately, the first app I tried, the root tethering app didn't work. I'll have to mess around with it a bit, but I soon distracted 
+myself with other magical glories. 
+It didn't take me long to concoct some new plans. I chased down an old dream of mine to make 
+some peer-to-peer software, and magically came across some UDP-busting code in an old rubyinsider 
+<a href='http://www.rubyinside.com/skype-style-firewall-busting-with-ruby-and-udp-399.html'>post</a>. I tested that 
+code out between my ec2 and home computer with a random port, and KAPOW, magic peer to peer behind a firewall. 
+The real test would be getting it to work between my home computer and my phone.</p>
+
+<p>Burrito break. The weather is just gorgeous in San Francisco, so I biked around until it got dark. Didn't see anything too shocking.</p>
+
+<p>The next question was how to get ruby to run on my phone. Looking for an Android ruby quickly brought up <a href='http://github.com/ruboto/ruboto'>ruboto</a>. I executed the peer-to-peer code through ruboto, and to my initial shock, I was able to send packets from my phone to my home computer, both from behind firewalls. I then made a full fledged ruboto app, with the intention of
+allowing a website to snap pictures from my phone whenever they wanted. <p style='text-decoration:line-through'>However, later I discovered the caveat that my phone isn't receiving the data, and that it's maybe <a href='http://stackoverflow.com/questions/12359502/udp-hole-punching-not-going-through-on-3g'>not so easy</a> to connect two phones this way. It still seems feasible though, but ofc there is no silver bullet.</p></p>
+
+<p><strong>Update:</strong> Turns out all the peer-to-peer mobile stuff does work. I just needed to play around with it a little more.</p>
+
+</body>
+</html>

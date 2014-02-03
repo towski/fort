@@ -1,0 +1,88 @@
+<html>
+<head>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 0, 31)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>Being a programmer is hard. I finally get my dev environment where I want it, and my harddrive crashes. A 2 month old harddrive just
+crashes. And all because I bought a linux laptop. This shit doesn't happen on OSX. Put that on my list of things you need to plan for. And
+I temporarily changed a few passwords to an older password 
+and someone hacks my AWS account. In what is basically a 2 day window. </p>
+
+<p>I've seen everything go wrong in every different way, and not just for me personally. I've seen data center employees accidentally
+completely power off your entire rack. I've seen DNS hosts clear all your DNS records, and when you file a support ticket,
+they make it worse, so you lose DNS for an entire day. 
+</p>
+
+<p>Compared to that, OSX is such a shiny beautiful world. Where everything always works. I'm convinced that everyone at Apple must be on drugs
+all the time, in order to ensure that everything always goes right. Because it's simply not the normal world of computing.
+</p>
+<p>
+It's true, programmers have to constantly deaden themselves with alcohol and coffee and weed, just to handle
+the chaos. If you hit a few home runs, you may become a member of the technorati, while thousands of schlubs slave
+away on the entire open source stack. Someone swoops in to take all the credit. And apparently the billionaires of
+Silicon Valley are price-fixing engineer salaries. The pigs have learned to walk.
+</p>
+
+<p>Someone has already said this, but it's true. The longer you've been in technology, the more you realize what a shit show it really is.</p>
+
+<p>
+So I'm back on Linux. And Linux is basically the gutter compared to OSX. I installed the unstable branch of Debian, only to have my X server totally
+destroy it's own config, and become unusable. So now I'm back on Debian stable, but it looks and feels like 5 years ago. Nothing
+is sadder than seeing those guys at the coffee shop running those old Linux distributions. Nothing sexy about it. </p>
+
+<p>But at least I can wash my hands of all that insanity. When technology is used to make money, evil knows no bounds. With Linux,
+I can rest assured that someone somewhere is still passionate about updating the libc package. They are the real heros in the technology
+world. The thousands of regular people who sit in linux irc chat rooms, update linux packages, and generally
+focus entirely on the boring shit that we're all too good for. Because let's face it, no matter how big you 
+think your contribution is to open source, you're basically pulling a single lever of a million levered juggernaut.
+</p>
+
+<p>In life, as in the computer world, you must constantly be failsafing everything. We have to protect ourselves from our own bosses
+and their maniacal urges. And turns out, it's not just a localized thing. The people at the very top are manipulative assholes too.
+With millions of ways to hide their tracks. I'm starting to think maybe the NSA isn't such a bad thing. 
+Maybe they're more like Perry Mason, some of the time. At least the government pretends to have our backs. 
+</p>
+<p>
+Technology is a violent world, and engineers are the people that are preventing
+you from seeing all that. 
+Engineers who are brilliant at covering their own tracks. 
+Someone cut a few wires on my electric bicycle, so now I get to spend the weekend at Radio Shack. For as many
+people there are in San Francisco that are excited about technology, there are just as many people agitated about it.
+Welcome to the future. </p>

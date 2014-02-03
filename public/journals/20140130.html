@@ -1,0 +1,91 @@
+<html>
+<head>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 0, 30)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>Most of the day was spent on menial tech tasks that I outline at the bottom. But the real excitement happened the big hoedown at Github's newish building in South Beach, San Francisco. For the uninitiated, Github is a hugely popular world-changing website for programmers. 
+I wasn't quite sure what to expect. </p>
+
+<p>I'd seen the insides and roof of their beautiful new building, but it was so big that it seemed difficult to fill the space.
+But I was very impressed with effort lavished on the party. There was a goodly amount of people, balloons and party lights, and the bars and kitchen were in full operation. The food was excellent. An old friend had invited me, and it was good to chat about the ever changing and expansive world of github.
+</p>
+<p>
+Github is an intimidating world that I have to admit, I feel somewhat of an outsider in. I'm a little envious of the successful hacker's sophisticated lifestyle, and I wish I was an Ubermensch too.
+It's rare to see so many successful people, all bootstrapped by their own ability. We toasted their success.
+I was talking to a young developer who was enamored by all the celebrity programmers surrounding him. 
+It's hard to understand just how meaningful one persons contribution to code can be. 
+</p>
+
+<p>And the party itself seemed to show how github has matured. I've watched the company and website grow immensely since inception. 
+Gone are the raucous drunken parties of the early days, and fewer are the open bars nights in San Francisco and around the world.
+One of the founders once told me he had visited something like 40 countries promoting github. 
+I didn't realize at the time just how immensely successful github was. 
+</p>
+
+<p>
+On my way home I noticed that Pop's (bar on 24th and York) was near empty, and someone was staring out the window at people. I went inside, grabbed
+a beer, and struck up a conversation with the guy.
+He was friendly, from New York, 46, and admitted that he likes to go into Pop's regularly, have a drink
+by himself, and listen to his iPod. He left and I chatted to the waitress for a bit. </p>
+
+<p>She pointed out that the place was basically empty because
+there was an impending shutdown. The owner had changed, and as soon as it finalized they would close to remodel. The few remaining patrons
+were regulars. I enjoyed being there for what seemed like the final moments of something meaningful. 
+The waitress was more saddened by it, and not too excited about what will replace it.  Another local haunt bites the dust. I can just imagine someone pausing 
+reflectively as they shut the door for the last time. </p>
+
+<h4>Technical Stuff</h4>
+
+<p>Finishing touches on my new Debian computer. Reinstalled <a href='http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html'>
+pipelight</a> so I can use Netflix on Linux (it basically just uses wine and silverlight (is my understanding)). Had to <a href=''>manually</a> update the Debian package
+for one of the dependencies (the strangely named wine-compholio) because it relied some packages that got moved.
+</p>
+<p>
+Got spotify working again.
+The basic installation failed, either because I'm using Debian instead of Ubuntu, or because I'm using Debian unstable. But I got it working 
+using <a href='https://github.com/leamas/spotify-make'>this repo.</a>. I really like the new Gnome setup. Everything just seems to click
+a bit better than Ubuntu. The terminal looks better, and it feels more open source. I really dig it, I'm almost glad my harddrive crashed, but only
+because I've recovered most of what I lost. </p>
+
+<p>Uploaded <a href='https://github.com/towski/punch'>my android app (punch)</a> to github. It sends photos directly from my phone to my computer through
+UDP hole punching. It doesn't do much more than that, but eventually I'd like it to publish and save more of my own data, so I can blog it. </p>
+
+</body>
+</html>

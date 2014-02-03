@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Wednesday, January 29th, 2014</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Wednesday, January 29th</h1>
+<p>Got and installed a new hard drive for my computer today. Decided to reinstall debian instead of Ubuntu. It was fun, but I am tired of this basic
+stuff. What a hassle. </p>
+
+<p>Actually, I guess it wasn't too bad. It was fun to read directly from the hard drive, trying to salvage data. Even though the hard drive eventually
+crashed and I was unable to recreate what I lost, most of it was on github, or my servers. Playing around with Knoppix was fun, reminded me how much I like Debian. I downloaded Knoppix to a DVD so I could use Knoppix64, and I bootstrapped my new Debian install directly onto the hard drive using debootstrap. With debootstrap, you can basically create a debian installation into any directory that you want. Then if you use chroot, your terminal will behave like it's in a separate installation.</p>
+
+<p>The full process was like this: I manually did an fdisk to create one partition on my new hard drive. Then I created an ext4 file system, then ran <a href='https://wiki.debian.org/Debootstrap'>Debootrap</a> with the options for the unstable Debian. Then I installed grub2 and a linux kernel inside a chrooted environment. With grub-install /dev/sda I was able to install the bootloaded with the kernel, and then boot from the harddrive. I had to add the non-free repository to install firmware for my wireless card with the package firmware-iwlwifi. I then installed gnome desktop, which actually behaves a lot more consistently than Ubuntu Unity, and looks a little nicer.</p>
+
+</body>
+</html>
