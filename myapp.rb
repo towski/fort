@@ -3,15 +3,6 @@ require "sinatra/base"
 require 'debugger'
 require "json"
 require './application'
-#Debugger.settings[:autoeval] = true
-#Debugger.settings[:autolist] = 1
-#Debugger.settings[:reload_source_on_change] = true
-
-def rdebug
-	Debugger.wait_connection = true
-	Debugger.start_remote
-	debugger
-end
 
 class MyApp < Sinatra::Base
 	def inaccessible
@@ -23,7 +14,14 @@ class MyApp < Sinatra::Base
 	end
 
 	get '/' do
-		exit
+	end
+
+	get '/fort/jobs' do
+		return if inaccessible
+		job = Job.new :type => "receiver"
+		rdebug
+		#hash = env['rack.request.form_hash']
+		job.save
 	end
 
   get '/fort/?' do

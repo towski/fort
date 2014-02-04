@@ -1,0 +1,46 @@
+<html>
+<body>
+<div id='pictures'>
+<script>
+function request_call(td, i, next_date){
+	var request = new XMLHttpRequest()
+	var url = '/pictures'
+	request.open('get', url) 
+	request.onload = function() {
+		if (this.status == 200 || this.status == 304){ 
+			globby = this
+			var text = this.responseText
+			var next_pos = text.search("href")
+			images = []
+			while(next_pos != -1){
+				text = text.substring(next_pos + 6)
+				end_pos = text.search("\"")
+				value = text.substring(0, end_pos)
+				images.push(value)
+				next_pos = text.search("href")
+			}
+			images.shift()
+			images.shift()
+			images.shift()
+			var start = 0
+			var div = document.getElementById('pictures')
+			while(start < images.length){
+				var a = document.createElement('a')
+				a.href = "/pictures/" + images[start]
+				var img = document.createElement('img')
+				img.src = "/pictures/thumbnails/" + images[start]
+				img.style.width = '200px'
+				img.style.height = '150px'
+				a.appendChild(img)
+				div.appendChild(a)
+				start += 1
+			}
+		}
+	}
+	request.send()
+}
+request_call()
+</script>
+</div>
+</body>
+</html>
