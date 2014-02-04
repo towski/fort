@@ -59,14 +59,14 @@
 	</div>
 	<div class='inline-block ' style=' width: 35%;'>
 		<h4 style='text-align:center'>Thoughts</h4>
-			<form id='thought_form' style='display:none; text-align:center;' method="post" action="/triforce/thoughts">
-				<input name='body' type='text' />
+			<form id='thought_form' style='display:none; text-align:center;' method="post" action="/fort/thoughts">
+				<textarea name='body' rows="4" cols="30" /></textarea>
 				<input type='submit'/>
 			</form>
+			<a href='#' onclick="var form = document.getElementById('thought_form'); form.style.display = 'block'; event.target.style.display = 'none'; return false;" style='display:none; text-align:center;' id='share_thought'>Share thought</a>
 			<script>
 				if(document.location.hostname == "localhost"){
-					document.getElementById('thought_form').style.display = "block"
-					
+					document.getElementById('share_thought').style.display = "block"
 				}
 			</script>
 		<ul id='thoughts' style='list-style:none; padding-left:40px;'>

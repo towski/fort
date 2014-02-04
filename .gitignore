@@ -4,9 +4,13 @@ raw_output*
 rawoutput*
 output.jpg
 raw_images/*
+log/*
 db/*
 !db/.keep
+test/db/*
+!test/db/.keep
 tmp/sockets/unicorn.sock
 tmp/pids/unicorn.pid
 *swp
 .gitold
+02012014.pem

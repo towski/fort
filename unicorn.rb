@@ -1,6 +1,6 @@
 # set path to app that will be used to configure unicorn, 
 # note the trailing slash in this example
-@dir = "/home/towski/code/triforce/"
+@dir = "/home/towski/code/fort/"
 
 if ENV["RACK_ENV"] == "development"
 	require 'debugger'
