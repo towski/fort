@@ -3,8 +3,10 @@
 raw_output*
 rawoutput*
 output.jpg
+core
 raw_images/*
 log/*
+!log/.keep
 db/*
 !db/.keep
 test/db/*

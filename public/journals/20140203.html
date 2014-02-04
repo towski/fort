@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 2)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+Lots of messing about today. Had fun playing with unicorn signals and rdebug. Also decided to build my own simple ORM using Berkeley Databases. 
+I figure they might be a great solution for a mostly read-only environment, with only one writer. You learn so much more when you do
+things yourself.
+</p>
+<h3>Tech Stuff</h3>
+<p>Anyways, by far the coolest thing I learned all day was:
+<p>
+<code>
+	require 'debugger' <br/>
+	Debugger.wait_connection = true <br/>
+	Debugger.start_remote <br/>
+	debugger
+</code>
+</p>
+and
+<p>
+<code>rdebug -c</code>
+</p>
+I think I was told about it once, but there wasn't much documentation on the web about it. Anyways, I found it <a href='http://chrisadams.me.uk/2009/04/28/how-to-set-up-a-debugger-with-mod_railspassenger/'>here</a>. It seems like Google isn't so great at indexing ruby blog posts anymore. Most of the google results for 'ruby remote debug' are useless. I'm
+pretty happy I can debug unicorns again. </p>
+
+<p>I also read <a href='http://gnuu.org/2009/09/18/writing-your-own-toy-compiler/4/'>this article</a> about creating your own language, since I was digging
+around in the ruby code yesterday. I added some self-hosted git repos to <a href='/'>towski.no-ip.biz</a> so I'm not pushing my data to yet another centralized
+service.</p>
+
+<p>I also spent a lot of time in nginx today, adding a unicorn process that can interact with my phone. I messed around with some basic uploading stuff, so I
+could implement 'tweets'. It's actually pretty nice to have tweets all be local, and then I can push them to twitter, but only if I want to. </p>

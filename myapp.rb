@@ -2,8 +2,7 @@ require "rubygems"
 require "sinatra/base"
 require 'debugger'
 require "json"
-$:.unshift File.dirname(__FILE__) + "/lib"
-require 'thought'
+require './application'
 #Debugger.settings[:autoeval] = true
 #Debugger.settings[:autolist] = 1
 #Debugger.settings[:reload_source_on_change] = true
