@@ -13,6 +13,7 @@ test/db/*
 !test/db/.keep
 tmp/sockets/unicorn.sock
 tmp/pids/unicorn.pid
+public/raw_images
 *swp
 .gitold
 02012014.pem
