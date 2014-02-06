@@ -1,6 +1,11 @@
 $:.unshift File.dirname(__FILE__) + "/lib"
 
-require 'model'
+require 'dbm_orm'
+if ENV == "produsction"
+	Model.dir = './db'
+else
+	Model.dir = './test/db'
+end
 require 'thought'
 
 #Debugger.settings[:autoeval] = true

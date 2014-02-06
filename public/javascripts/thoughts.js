@@ -86,6 +86,16 @@ function clickShare(button1, thought_id){
 	} else {
 		button1.setAttribute('data-text', "RT @towski " + text.innerText)
 	}
+	var facebook_link = document.createElement('a')
+	facebook_link.innerHTML = " facebook"
+	facebook_link.href = "#"
+	facebook_link.onclick = function(message){
+		return function(){
+			post_to_facebook(message)
+			return false;
+		}
+	}(text.innerText)
+	text.parentNode.appendChild(facebook_link)
 	setupButton()
 }
 

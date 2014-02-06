@@ -1,4 +1,7 @@
-require File.dirname(__FILE__) + "/../application"
+require_relative '../application'
+
+rm_cmd = "rm -f #{File.dirname(__FILE__)}/db/*"
+system(rm_cmd)
 
 class Array
   # Ask an Array whether it shares the same elements with another Array, irrespective of order

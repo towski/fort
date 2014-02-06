@@ -40,6 +40,31 @@
 </style>
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '594506243973886',
+				status     : true,
+				xfbml      : true
+			});
+
+		};
+
+		function post_to_facebook(message_text){
+			FB.login(function(){
+			 FB.api('/me/feed', 'post', {message: message_text});
+			}, {scope: 'publish_actions'});
+		}
+
+		(function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/all.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'facebook-jssdk'));
+	</script>
 <div>
 	<div class='inline-block'>
 		<img src='http://i.imgur.com/M50Zu4Q.gif' />

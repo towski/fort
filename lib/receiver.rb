@@ -1,4 +1,5 @@
 require 'socket'
+require 'json'
 CRLF = "\r\n"
 
 @index = 0 
@@ -6,9 +7,18 @@ CRLF = "\r\n"
 
 def receive
   begin
+		puts "What data class?:"
+		type = gets
+		puts "What method?:"
+		method = gets
+		puts "What params?:"
+		params = gets
     sock = TCPSocket.new 'ec2-54-196-239-114.compute-1.amazonaws.com', 4444 #'towski.us', 4444
-    sock.write("hey")
-    remote_host, remote_port = sock.read.split(":")
+    sock.write({type: type, method: method, params: params}.to_json)
+		result = sock.read
+		response = JSON.parse(result)
+		puts response
+    remote_host, remote_port = response['host'].split(":")
     puts "readed #{remote_host}"
     sock.close
   rescue => e
@@ -50,28 +60,20 @@ def receive
       i = 0
 			output = ""
 			timeouts = 0
+			data_amount = 0
       loop do
 				if IO.select([udp_in], nil, nil, 5)
-					puts "got data"
 					data = udp_in.recvfrom(1024)
+					puts "got data #{data_amount}" if data_amount % 1000 == 0
+					data_amount += 1
 					next if data[0] == "handy"
 					if data[0] == CRLF
-						puts "breaking"
-						image_time = Time.now.to_i
-						filename = "/home/towski/code/fort/public/raw_images/raw_output#{image_time}.jpg"
-						converted_filename = "/home/towski/code/fort/public/raw_images/output#{image_time}.jpg"
-						file = File.open(filename, "w")
-						file.write(output)
-						file.close
+						puts output.inspect
 						udp_in.close
-						#`convert -rotate 90 #{filename} #{converted_filename}`
-						`cp #{filename} /home/towski/code/fort/public/output.jpg`
-						puts "got file output#{image_time}.jpg"
+						# handle data type
 						return
 					end
-					i += 1
 					output += data[0]
-					#puts "Response from #{remote_addr}:#{remote_port} is #{data[0]}"
 				else
 					puts "timed out"
 					timeouts += 1

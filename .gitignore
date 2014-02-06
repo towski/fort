@@ -3,6 +3,7 @@
 raw_output*
 rawoutput*
 output.jpg
+server.sh
 core
 raw_images/*
 log/*

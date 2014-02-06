@@ -13,9 +13,6 @@ class MyApp < Sinatra::Base
 		check
 	end
 
-	get '/' do
-	end
-
 	get '/fort/jobs' do
 		return if inaccessible
 		job = Job.new :type => "receiver"
