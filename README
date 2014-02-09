@@ -1,3 +1,5 @@
 Data server/blog and CLI for requesting data from my phone.
 
 ruby lib/receiver.rb is the CLI
+
+right now the prompt only understands 'ls' and <ID NUMBER>
