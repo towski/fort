@@ -12,6 +12,9 @@
 		height: 26px;
 		text-align:center;
 	}
+  #month_td p {
+    text-indent: 40px;
+  }
 	.blank_day {
 		width: 28px;
 		height: 26px;
@@ -35,7 +38,7 @@
 		vertical-align:top;
 	}
 	.twenty-five-perc {
-		width: 24%;
+		width: 25%;
 	}
 </style>
 </head>
@@ -65,22 +68,44 @@
 			 fjs.parentNode.insertBefore(js, fjs);
 		 }(document, 'script', 'facebook-jssdk'));
 	</script>
-<div>
-	<div class='inline-block'>
+<div style='width:100%'>
+	<div class='inline-block' style='width:15%'>
 		<img src='http://i.imgur.com/M50Zu4Q.gif' />
-		<h6>Repositories</h6>
-		<ul style='font-size:12px; line-height:1.5em; padding:0;'>
-			<li>
-				<strong>this blog</strong><br/>
-				<span>git clone git://towski.no-ip.biz/fort.git &nbsp; &nbsp; &nbsp; </span>
-			</li>
-			<li>
-				<strong>ruby code hacks</strong><br/>
-				<span>git clone git://towski.no-ip.biz/ruby-0.49.git &nbsp; &nbsp; &nbsp; </span>
-			</li>
+		<h4 style='margin-top:20px'>Posts</h4>
+		<ul style='list-style:none; text-align:left; padding-left:0;'>
+			<!--li><a href='/serious/memento.html'>Memento</a></li-->
+			<li><a href='/portland.html'>3 years in Portland</a></li>
+			<li><a href='/journals/20140202.html'>Decentralize the web</a></li>
+			<li><a href='/serious/there_and_back_again.html'>There and back again</a></li>
+			<li><a href='/serious/dont_die_on_me.html'>Don't Die on Me</a></li>
 		</ul>
 	</div>
-	<div class='inline-block ' style=' width: 35%;'>
+	<div id='month_td' class='inline-block' style='width: 30%; line-height: 1.4em; padding: 0 27px 0 27px;'>
+      <div id='diary'></div>
+      <script src='/javascripts/calendar.js'></script>
+      <script src='/javascripts/pretty.js'></script>
+    <script>
+      var month_td = document.getElementById('month_td')
+      var diary_div = document.createElement('div')
+      diary_div.innerHTML = ""
+      var request = new XMLHttpRequest()
+      var url = '/journals/20140208.html'
+      request.open('get', url) 
+      request.onload = function() {
+        if (this.status == 200 || this.status == 304){ 
+          var header = document.createElement("h4")
+          header.innerHTML = "February 8, 2014"
+          header.style['text-align'] = 'center'
+          diary_div.appendChild(header)
+          diary_div.innerHTML += this.responseText.substring(this.responseText.search("<p>"))
+          diary_div.style["margin-top"] = '20px;'
+        }
+      }
+      month_td.appendChild(diary_div)
+      request.send()
+    </script>
+	</div>
+	<div class='inline-block ' style='width: 30%;'>
 		<h4 style='text-align:center'>Thoughts</h4>
 			<form id='thought_form' style='display:none; text-align:center;' method="post" action="/fort/thoughts">
 				<textarea name='body' rows="4" cols="30" /></textarea>
@@ -92,7 +117,7 @@
 					document.getElementById('share_thought').style.display = "block"
 				}
 			</script>
-		<ul id='thoughts' style='list-style:none; padding-left:40px;'>
+		<ul id='thoughts' style='list-style:none; padding-right:40px;'>
 			<script src='/javascripts/thoughts.js'></script>
 				<!--li id='thought-1' >
 				<p class='thought-text'>Diary dates now go backwards! -></p>
@@ -101,21 +126,26 @@
 				</li-->
 		</ul>
 	</div>
-	<div id='month_td' class='inline-block' style='text-align:center; padding-left: 60px; width: 20%;'>
-		<script src='/javascripts/calendar.js'></script>
-		<script src='/javascripts/pretty.js'></script>
-	</div>
 
-	<div class='inline-block' style='text-align:right; width: 20%;'>
+	<div class='inline-block' style='text-align:center; width: 20%;'>
 		<img src='output.jpg' style="width:100%; height:100%" />
 		<p style='font-size:12px'>
 			The latest from my camera <a href='/raw_images/'>(all)</a>
 		</p>
-		<h4 style='margin-top:50px'>Posts</h4>
-		<ul style='list-style:none'>
-			<!--li><a href='/serious/memento.html'>Memento</a></li-->
-			<li><a href='/serious/there_and_back_again.html'>There and back again</a></li>
-			<li><a href='/serious/dont_die_on_me.html'>Don't Die on Me</a></li>
+		<h6>Repositories</h6>
+		<ul style='list-style:none; font-size:12px; line-height:1.5em; padding:0;'>
+			<li>
+				<strong>goruby</strong><br/>
+				<span>git clone git://github.com/goruby.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
+			<li>
+				<strong>android app</strong><br/>
+				<span>git clone git://github.com/punch.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
+			<li>
+				<strong>this blog</strong><br/>
+				<span>git clone git://towski.no-ip.biz/fort.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
 		</ul>
 	</div>
 </div>

@@ -1,6 +1,5 @@
 function get_current_thought(get_thought){
 	var ul = document.getElementById('thoughts')
-	ul.innerHTML = ""
 	var request = new XMLHttpRequest()
 	var url = '/fort/thoughts'
 	request.open('get', url) 

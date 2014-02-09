@@ -1,12 +1,13 @@
 $:.unshift File.dirname(__FILE__) + "/lib"
 
 require 'dbm_orm'
-if ENV == "produsction"
+if ENV['ORM'] == "production"
 	Model.dir = './db'
 else
 	Model.dir = './test/db'
 end
 require 'thought'
+require 'picture'
 
 #Debugger.settings[:autoeval] = true
 #Debugger.settings[:autolist] = 1

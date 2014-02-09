@@ -31,6 +31,8 @@ function request_call(td, i, next_date){
   request.send()
 }
 
+var total_days = 28
+var current_days = 0
 
 function build_calendar(month, year, object){
   var today = new Date()
@@ -45,6 +47,7 @@ function build_calendar(month, year, object){
   var first_day = new Date(year, month - 1, 1)
   var new_element = document.createElement('div')
   var month_table = document.createElement('table')
+  month_table.style.margin = "auto"
   new_element.appendChild(month_table)
   var blank_day = new Date(first_day.getFullYear(), first_day.getMonth(), 0)
   if(first_day.getMonth() == today.getMonth()){
@@ -61,6 +64,7 @@ function build_calendar(month, year, object){
     td.className = "blank_day"
     first_row.appendChild(td)
     start_day -= 1
+    current_days += 1
   }
 
   month_table.appendChild(first_row)
@@ -85,13 +89,18 @@ function build_calendar(month, year, object){
     next_row.appendChild(td)
     month_table
     i -= 1
+    current_days += 1
+    if(current_days >= total_days){
+      break 
+    }
   }
   object.first_row = next_row
   return new_element;
 }
 
-var tr = document.getElementById('month_td')
+var tr = document.getElementById('diary')
 var month_name_header = document.createElement('h4')
+month_name_header.style['text-align'] = "center"
 month_name_header.innerHTML = "Diary"
 tr.appendChild(month_name_header)
 var first_row = Object()

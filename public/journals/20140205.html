@@ -1,0 +1,73 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 5)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140204.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140207.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>Today I pulled the code for my simple ORM out into a <a href="https://github.com/towski/dbm_orm">ruby gem</a>. I need to put the gem in both 
+my web project (this) and my android app (jruby). It basically stores the info for the data that I'm going to be exchanging back and forth between
+my phone and my computer. 
+</p>
+
+<p>Had some hiccups getting the tests to all run, and prayed that the different implementations of DBM wouldn't be a problem. Thankfully, just vendoring
+my gem in the my JRuby android project worked fine. Well almost. I did have to do something to get require 'json' to work, but it was a small something.
+</p>
+
+<p>I then worked on sending actual json back and forth through the UDP socket between the two endpoints. Easy, since 
+most of that code was already there.  It was fun to see the data flowing between my phone and my computer, so
+I started working on a generic way to make requests from my computer to my phone. </p>
+<p>
+But I realized I'm getting a little ahead of myself, and I need to spend some time writing tests for the android app. 
+Ruboto has some testing built-in, so I got them running. The server could also use some tests, and the code could use some 
+cleanup overall. Never enough tests!
+</p>
+<p>Watched the Movie "The Lady from Shanghai". The plot was hard to follow, but the message is clear. The evil folks of the world will tear each other
+apart eventually. Let's hope Orson Welles is right. 
+</p>
+<p>
+Snippet of the day: converting all your tabs to spaces.
+</p>
+<p>
+<code>
+find . -name "*rb" -exec vim -c "retab|wq" {} \;
+</code>
+</p>
+vim -c seems pretty useful and cool. Not sure whether to thank <a href='http://stackoverflow.com/questions/9366243/execute-a-command-within-vim-from-the-command-line'>stack overflow</a>  or google.
