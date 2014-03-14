@@ -5,6 +5,7 @@ CRLF = "\r\n"
 
 @index = 0 
 @timeouts = 0
+@pictures = []
 
 def receive
   begin
@@ -67,12 +68,14 @@ def receive
           if data[0] == CRLF
             puts "got #{output.size} data"
             if command == "ls"
-              puts JSON.parse(output)
+              @pictures = JSON.parse(output)
+              puts @pictures
             else
               filename = Picture.receive(output, command.to_i)
               p = Picture.find(command.to_i)
               if p.nil?
-                p = Picture.new(:filename => filename, :id => command.to_i)
+                data = @pictures.select {|picture| picture["id"].to_i == command.to_i }.first
+                p = Picture.new(data.merge('local_filename' => filename))
                 p.save
               end
             end

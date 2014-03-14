@@ -1,0 +1,73 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_tile'>The Deepest Pain</h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 10)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140212.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140216.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>This is the story of the deepest pain I have ever felt. A pain so deep, that
+it penetrated into the deepest core of my being, and shattered me. A pain
+that I couldn't brush off, or even explain. It's a pain that I 
+still don't fully understand. </p>
+
+<p>I always brushed pain off, avoided suffering. 
+And felt reasonably secure in my world. </p>
+
+<p>But then, I started to have my doubts. And I started having to question
+things. It made me question the trajectory I was taking in my life.
+It eventually it made me question everything. </p>
+
+<p>See I never experienced a pain so deep that it breaks you. I had always been 
+fairly fortunate. Things hadn't always gone my way. But I was fairly optimistic
+and good natured about it. I always felt it would be a waste to let the 
+negativity swallow you. People that are negative are clearly damaged, right?
+I always recognized that and avoided them. </p>
+
+<p>And I always felt like I was careful, even if I has made reckless decisions.
+But I started to realize that the dark side of the world was much bigger than 
+I thought. All the things I thought would always be there, started to slip away. 
+And I couldn't account for all the negativity I was surrounded with. 
+</p>
+
+<p>Sometimes a pain can get so deep that it shatters your very being. And overnight 
+I went from being the optimistic good natured guy that I always enjoyed being, 
+to a completely distraught, insecure, unhappy, confused person. </p>
+
+<p>But tragedy happens. 

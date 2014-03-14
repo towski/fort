@@ -15,6 +15,7 @@ test/db/*
 tmp/sockets/unicorn.sock
 tmp/pids/unicorn.pid
 public/raw_images
+public/bitcoinjs-gui
 *swp
 .gitold
 02012014.pem

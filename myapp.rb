@@ -31,6 +31,10 @@ class MyApp < Sinatra::Base
 		Thought.last(10).to_json
 	end
 
+	get '/fort/pictures' do
+		Picture.last(10).to_json
+	end
+
 	post '/fort/thoughts/:number' do
 		thought = Thought.find params[:number]
 		thought.update_attribute :body, params[:body]

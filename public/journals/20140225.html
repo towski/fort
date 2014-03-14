@@ -1,0 +1,100 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 25)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+Spent the day soldering(!). Some chunko snipped some wires on my custom electric bike while ripping off the display, so I had to 
+buy a new computer and display (<a href='http://www.leafbike.com/products/brushless-motor-controller/36v-lcd-motor-controller/36v-750w-electric-bike-motor-controller-952.html'>100 bucks</a>), and reattach the connectors.
+I was half convinced that it wouldn't work, since I know nothing about connectors, solder, wires.
+I figured I would mess up one of the connectors, and the day would end in frustration and despair.
+</p>
+<p>
+There were a total of 11 wires I had to resolder. With the new controller, I had to change some of the
+previously male adapters to be female. The first wire was a real hassle. Cut myself trying to
+loosen the gold metal clasps. At least I think it's gold. 
+Then attaching the wire again with the pliers was difficult, because the
+wire would just slip out. I pined for a better way.
+</p>
+<p>Thankfully, there was. Solder everything! I stopped messing around with the pliers and just slathered
+on the solder. After a few test connectors, the rest of the connectors were refastened. 
+Now I needed to make sure all the wires would reconnect properly.
+</p>
+<p> My biggest fear was that I'd hook it all up, and it just wouldn't work. In the past, the power wire
+had a loose connection, so occasionally things just wouldn't work. 
+Also with the new controller, the wiring diagrams changed. In the old controller, the colors of the wires
+didn't match up.</p>
+<p>At first tried hooking things up the old way. Comedically, that lead to the tire making a weird noise and going in reverse. 
+At least I was reassured that everything was functioning, and on the first try. Big sigh of relief. 
+I took a leap of faith, and tried matching up all the colors between the connections. Success!
+The web site I bought the parts from, <a href='http://leafbike.com/'>Leaf Bike</a>, made a few improvements to the
+schematic, and now it makes more sense. 
+</p>
+<p>Spent a bit more time organizing the components and wires around the bike, and positioning everything in the enclosure.
+Overall it felt like an upgrade, and the best was yet to come.</p>
+<p>
+The upgrade enabled some new features. 
+Now the speedometer and the odometer work without separate sensors. 
+And the data it records lasts after you turn the bike off and back on, so it's more like a car. 
+And the battery gauge doesn't jump around as much. 
+Electric Bike v0.2! Better than a new iphone. 
+</p>
+<p>
+Went for an evening jaunt after it was all done. 15.0 miles. Average speed was around 17mph. Time on the bike:
+1 hour 20 minutes. Used about 3/4 of the juice. Through SOMA, up Embaracadero, back down Columbus, and past
+Union Square. Will have to try out a GPS plotting app. Takeway: Wires are your friend. Numbers are fun. 
+</p>

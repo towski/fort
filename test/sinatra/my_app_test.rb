@@ -15,8 +15,17 @@ class MyAppTest < MiniTest::Test
   end
 
   def test_it_says_hello_world
-		Thought.new :body => "thinking..."
+		thought = Thought.new :body => "thinking..."
+    thought.save
     get '/fort/thoughts'
+    assert last_response.ok?
+		assert true
+  end
+
+  def test_it_says_hello_world
+    picture = Picture.new :filename => 'dirty.jpg'
+    picture.save
+    get '/fort/pictures'
     assert last_response.ok?
 		assert true
   end
