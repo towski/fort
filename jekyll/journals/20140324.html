@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h4 id='date_tile'>
+How an automated driving company should be built
+</h4></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 2, 24)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+Much effort has been put into using computers to automatically drive.
+But apparently less effort has been put into reasoning about HOW to solve 
+that problem. 
+</p>
+
+<p>
+If you were really interested in an automated driving system, you would go about it
+in a much simpler way. Your first thought wouldn't be, how do I get a computer get a car to
+drive itself. 
+</p>
+
+<p>
+Your first thought would be, how do I get a car to automatically get from one place to another. 
+Don't worry about the HOW we do that yet. Just reframe the problem. Then you might realize,
+that you don't need an entirely new type of vehicle for that with an incredibly complicated
+AI, set at a price that is unaffordable to most people.
+You don't need a computer that will automatically
+decide when to change lanes. Or even which route to take. 
+</p>
+
+<p>What you need is a way to remotely control a car. See, the user doesn't really care HOW the 
+car drives itself. Just that it does. And the easiest, safest, and most trustable method
+for doing so, is to have another human control the car remotely. 
+</p>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="0.92"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Beyond Belief</title>
+    <link>http://towski.duckdns.org</link>
+    <description>Exploring the unreal in the modern world</description>
+    <language>en-us</language>
+    <pubDate>Wed, 10 Sep 2014 23:47:15 -0700</pubDate>
+    <image>
+      <url>gu</url>
+      <title>Beyond Belief</title>
+      <link>http://towski.duckdns.org</link>
+    </image>
+    <item>
+      <title>Beyond Belief 1: Flaming Cauldrons</title>
+      <link>https://www.dropbox.com/s/j48ryr14yrfks4n/beyond_belief_1.mp3?dl=1</link>
+      <pubDate>Tue, 09 Sep 2014 23:20:13 -0700</pubDate>
+      <dc:date>2014-09-09T23:20:13.270432-07:00</dc:date>
+      <itunes:duration>01:59</itunes:duration>
+    </item>
+    <dc:date>2014-09-10T23:47:15-07:00</dc:date>
+  </channel>
+</rss>

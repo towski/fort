@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 9)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140208.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+
+<p>
+Went down to Palo Alto to have lunch with some old high school friends. It was good to see them doing well
+</p>
+
+<p>
+Got home and worked on my android app some more. It definitely can be a chore trawling through the java
+documentation. Context and ContextWrappers. Java seems to have trouble naming things in any meaningful
+way, not sure why every java codebase always has such awkward names. WTF is an Intent? 
+Mostly succeeded in getting a process to run in the background, and am able to send notifications.
+</p>
+
+
+<p>Tired, but it is surprisingly fun to write Java knowing that it is a part of the Android
+runtime. Ruby and ruboto make this task a lot easier, though it could be improved.</p>

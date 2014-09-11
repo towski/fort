@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h4 id='date_tile'>
+Explore your Emotional Subsystem
+</h4></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 4, 10)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+Things can get pretty strange when you get to 30 nowadays. Lots of conflicting feelings. There is the desire to
+stay forever young. But there is also the feeling that you don't want to be doing all the dumb things young
+people are doing anymore. 
+</p>
+
+<p>
+There is the horrifying realization that people start noticing your age. Depending on your genes,
+you may continue to look appealing for a while. But the way you feel changes. It's not defeat to
+settle down. It's nature. 
+</p>
+
+<p>
+Like a fool, I personally felt like fighting nature. Like trying to continue to be young despite everything
+falling apart. Still wanting to found a crazy start-up. Get rich. Completely envious of my friends who 
+were able to maintain that lifestyle. 
+</p>

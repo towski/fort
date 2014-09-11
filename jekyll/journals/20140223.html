@@ -1,0 +1,90 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<a id='previous_link' style='display:none' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 23)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>Been busy the last 5 days working with a team for the <a href="http://hackathon.launch.co/schedule">launch hackfest</a>. We spent
+the last 48 hours hacking on an iPhone app (details secret). I learned a ton, from how apps are made, how they're pitched, how to work on a team,
+and a bunch of specific technologies.</p>
+
+<p>To prepare developing iOS apps on my linux laptop, I installed Mac OSX in a VirtualBox. I can even
+allocate 2 CPUs to speed it up a bit. I used the iatkos2 image to get it installed,
+and after that I got XCode working. Then I installed some test apps on my iPod touch. It was all pretty painless, and
+although it has glitches, it worked for the duration of the hackfest. I definitely recommend giving it more then 20GB,
+because it can be difficult to resize. </p>
+
+<p>I was mostly working on the backend, for which we used the <a href='https://github.com/rails-api/rails-api'>rails-api</a> gem with
+rails 3.2.17, and mongoid. We were deploying the whole thing to heroku, which was (as always) pretty seemless. I had hesitations about using
+Mongodb, but the <a href='https://twitter.com/shabuta'>product guy</a> had good experience with it, and it was pretty easy to get the models all working. 
+It's very different from your typical relationaldb, so there are probably problems with scaling etc. But it was perfect for a 
+weekend hackfest.</p>
+
+<p>I wrote out a Google Doc spec for the api before we started, and actually enjoyed writing out a spec. It worked, although
+I didn't always keep it updated. Initially I was just using cURL to manipulate the API data, 
+but when I finally switched to using <a href='https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en'>postman</a> 
+(the chrome app) it made a huge difference. I could easily verify that all the api calls were working, and tweak the data that way. </p>
+
+<p>Then I focused on getting the push notifications working. I got the <a href='https://github.com/nomad/houston'>houston</a> gem
+working on a test app before the hackfest started, and spent a chunk of time getting it to work with our shared app once the hackfest
+started. Luckily we had an experienced iOS dev on the team to help, and once the push requests were working he hooked them into the app.
+I looked at adding some basic language processing for the app with the treat gem, it worked well enough.</p>
+
+<p>I even did a little iOS development towards the end, formatting some table cells. The app itself is actually pretty slick, big props to
+<a href='https://twitter.com/shabuta'>shabuta</a> for the idea. I was lucky to get to work with such an experienced team. The event gave
+me some new ideas for projects. </p>
+
+<img width="100%" src='/hackfest.jpg'/>

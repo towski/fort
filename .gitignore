@@ -5,6 +5,7 @@ rawoutput*
 output.jpg
 server.sh
 core
+public/*
 raw_images/*
 log/*
 !log/.keep
@@ -21,3 +22,5 @@ public/bitcoinjs-gui
 02012014.pem
 backup
 untracked
+old_public
+jekyll/pictures

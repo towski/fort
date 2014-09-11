@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 3)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140202.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140204.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>I was getting my system backups setup today, when I stumbled across some pictures from my old work hard-drive. It had all the pictures from my
+Iphone in Portland, up until I left. I was suddenly taken by nostalgia for those times. 3 very special years, when the world, and the internet, seemed
+young.  I haven't felt that particular twinge of sadness in a while.  </p>
+
+<p> When I got to Portland I was thrown into the world of the web elite. I didn't realize what it would be like to work with the smartest people
+on the internet. Compared to them I was somewhat uninitiated. I had been doing it for a few years, but not next to the smartest programmers in the world.
+It was a learning experience that I still think about.</p>
+
+<p>Anyways, I put all this nostalgia into <a href="http://towski.no-ip.biz/pictures.html"> one place </a></p>
+<h3>Tech Stuff</h3>
+<p>
+The following 7 lines give me an important chunk of jQuery functionality, easy access to those hard to reach elements, so I can fudge with them:
+</p>
+<p>
+<script src="https://gist.github.com/towski/8799679.js"></script>
+</p>
+<p>
+There is something I don't like about using jQuery, and I think I'm starting to see what it is. 
+The library makes it hard to know what is built-in to the language, and what is part of jQuery. I
+am actually preferring to work with the straight javascript api. It's not really that wordy, when you
+consider all the things it can do. And you can use Chrome and Web inspect to get the XPath of a hard to reach element.</p>
+<p>
+Also decided to build my own simple ORM using Berkeley Databases, for Thoughts on my <a href='/'>homepage</a>. 
+I figure they might be a great solution for a mostly read-only environment, with only one writer. They can <a href='http://docs.oracle.com/cd/E17275_01/html/programmer_reference/cam.html#cam_intro'>handle concurrency</a>, so multiple unicorns. And they just seem simpler than sqlite or mysql, especially for a small
+self-hosted website. I am using the <a href='https://github.com/ruby-bdb/sbdb'>DBDB gem </a>.
+Code for that is in <a href='https://github.com/towski/fort'>fort</a>, but I'll probably split it off into
+it's own repository. I am reminded that the most important reason to build things yourself is to learn.
+</p>
+
+<p> Lots of messing about today. Had fun playing with unicorn signals and rdebug, and moving repositories around. Tomorrow I will probably add some more Models
+for the Berkeley Database ORM, and maybe do some Mobile programming. </p>

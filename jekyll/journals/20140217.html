@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 17)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>Felt pretty real today. Like a nice quiet American Monday. 
+</p>
+
+<p>Walking around San Francisco on a holiday has a nice quietness to it. A few people milling from place to place, nobody in any kind of rush.
+</p>
+<p>Biked up to the Embarcadero, with the usual mix of tourists. But there was something real about that too. Staring out at Alcatraz.
+Maybe the air was clear. </p>
+<p>Sitting at Whiz Burger definitely felt like this. 
+</p>
+<p><img src="/nighthawks.jpg"/></p>
+<p>Downloaded dwarf fortress again, but quickly remembered why I stopped playing it. Not real enough. It's also bound to one CPU, and relies on 32-bit libraries.
+I hope Cities in Motion one gets a fix for the crashing bug I constantly get. </p>

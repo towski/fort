@@ -1,0 +1,87 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 4)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140203.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140205.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>
+It's all technical today, no nostalgia.
+I spent a lot of time in javaland. Java has always kind of scared the shit out of me. How to jar? How to use jar?
+The first major hurdle was trying to figure out jar dependencies. The XML and the directory structure
+ make it seem much more complicated than it is. Then with JRuby you can simply do:
+</p>
+<p>
+<code>
+library = org.jruby.ext.dbm.DBMLibrary.new
+</code>
+</p>
+<p>
+Java is like an elephant. 
+Hard as hell to get going, but once you do, it will flip cars over. I can personally write ruby much much quicker. 
+But there's threading and GC and whatever else you want to complain about. In JRuby, I think you get real concurrency with just:
+</p>
+
+<p>
+<code>
+	Thread.new { .. }
+</code>
+</p>
+<p>
+And that's basically what I'm doing in my Android app for now (until I figure something better out).
+Apparently that's all it takes to get a background process on your phone. 
+I am appreciating ruboto and jruby more and more. They are best buds for life.
+</p>
+
+<p>
+However, it did take forever to get the code for <a href='https://github.com/jruby/dbm'>this</a> JRuby port of DBM 
+onto my phone so I could have a file database. There are probably better options, but I like the simplicity of the interface. 
+It makes use of <a href="https://github.com/jankotek/MapDB">MapDB</a>, which I can probably just use on it's own eventually.
+</p>
+
+<p>This probably sounds kind of dumb, but the single most import thing I learned today is:  if your jar depends on another jar, and you add your jar to another project,
+you also need to include the other jar. Once it's there, JRuby is happy and won't throw strange errors. 
+</p>
+
+<p>After all that fun, I got back to programming just straight JRuby.
+I setup a socket on my phone that stays open to the server, so if we get any requests we can handle them peer-to-peer style. It's basically
+a way for me to request data from my phone on my computer. There are still lots of kinks to work out, but it's solid progress. Not much exciting other than
+that, unless you count listening to Daft Punk for the nth time. </p>
+

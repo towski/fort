@@ -1,0 +1,208 @@
+---
+layout: home
+---
+<head>
+  <meta charset="utf-8">
+<title>Towski's portal</title>
+<style>
+  body {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 12px;
+  }
+	.month_day {
+		border: 1px solid;
+		width: 26px;
+		height: 26px;
+		text-align:center;
+	}
+  #month_td p {
+    text-indent: 40px;
+  }
+	.blank_day {
+		width: 28px;
+		height: 26px;
+	}
+	td.today {
+		border: 1px solid white;
+	}
+	#thoughts {
+		border-bottom: 1px solid #ccc;
+	}
+	#thoughts li {
+		border-top: 1px solid #ccc;
+		padding: 5px;
+		line-height: 1.4em;
+	}
+	#thoughts li a{
+		font-size: 12px;
+	}
+	.inline-block {
+		display: inline-block;
+		vertical-align:top;
+	}
+	.twenty-five-perc {
+		width: 25%;
+	}
+</style>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<div id="flickr-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '594506243973886',
+				status     : true,
+				xfbml      : true
+			});
+
+		};
+
+		function post_to_facebook(message_text){
+			FB.login(function(){
+			 FB.api('/me/feed', 'post', {message: message_text});
+			}, {scope: 'publish_actions'});
+		}
+
+		(function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/all.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'facebook-jssdk'));
+
+    var flickr_request_tag = document.createElement('script')
+    flickr_request_tag.src = "https://api.flickr.com/services/feeds/photos_public.gne?id=92799226@N00&format=json"
+    //"http://api.flickr.com/services/feeds/groups_pool.gne?id=92799226@N00&format=json&jsoncallback=displayImages"
+    var flickr_div = document.getElementById('flickr-root')
+    flickr_div.appendChild(flickr_request_tag)
+
+    function jsonFlickrFeed(data) {
+      var output_pic = document.getElementById('output_pic')
+      output_pic.src = data.items[0].media.m
+      var output_link = document.getElementById('flickr_link')
+      output_link.href = data.items[0].link
+    }
+	</script>
+<div style='width:100%'>
+	<div class='inline-block' style='width:15%'>
+		<!--img src='http://i.imgur.com/M50Zu4Q.gif' /-->
+		<img src='http://zippy.gfycat.com/AppropriateElectricCheetah.gif'/>
+		<h4 style='margin-top:20px'>Podcasts</h4>
+    <a href='http://towski.duckdns.org/podcast.rss'>rss</a>
+		<h4 style='margin-top:20px'>Posts</h4>
+		<ul style='list-style:none; text-align:left; padding-left:0;' id='link-list'>
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+			<!--li><a href='/serious/memento.html'>Memento</a></li-->
+			<li><a href='/journals/20140210.html'>The deepest feeling on the Internet</a></li>
+			<li><a href='/portland.html'>3 years in Portland</a></li>
+			<li><a href='/journals/20140202.html'>Decentralize the web</a></li>
+			<li><a href='/serious/there_and_back_again.html'>There and back again</a></li>
+			<li><a href='/serious/dont_die_on_me.html'>Don't Die on Me</a></li>
+		</ul>
+	</div>
+	<div id='month_td' class='inline-block' style='width: 30%; line-height: 1.4em; padding: 0 27px 0 27px;'>
+      <script src='/javascripts/pretty.js'></script>
+      {% assign post = site.posts.first %}
+      {% assign content = post.content %}
+      {% include post_detail.html %}
+      <!--script src='/javascripts/calendar.js'></script-->
+	</div>
+	<div class='inline-block ' style='width: 29%;'>
+		<h4 style='text-align:center'>Thoughts</h4>
+			<form id='thought_form' style='display:none; text-align:center;' method="post" action="/fort/thoughts">
+				<textarea name='body' rows="4" cols="30" /></textarea>
+				<input type='submit'/>
+			</form>
+			<a href='#' onclick="var form = document.getElementById('thought_form'); form.style.display = 'block'; event.target.style.display = 'none'; return false;" style='display:none; text-align:center;' id='share_thought'>Share thought</a>
+			<script>
+				if(document.location.hostname == "localhost"){
+					document.getElementById('share_thought').style.display = "block"
+				}
+			</script>
+
+		<ul id='thoughts' style='list-style:none; padding-right:40px;'>
+			<script src='/javascripts/thoughts.js'></script>
+				<!--li id='thought-1' >
+				<p class='thought-text'>Diary dates now go backwards! -></p>
+				<a title="2014-02-02T13:24:17Z"></a>
+				<a href="https://twitter.com/share" data-url="http://" class="twitter-share-button" data-text="something" data-related="towski" data-count="none" onclick="clickShare(event.target, 'thought-1'); return false">Share</a>
+				</li-->
+		</ul>
+	</div>
+
+	<div class='inline-block' style='text-align:center; width: 20%;'>
+    <a id='flickr_link'>
+      <img id='output_pic' src='' style="width:240px; height:180px" />
+    </a>
+		<p style='font-size:12px'>
+			The latest from my <a href='http://flickr.com/photos/towski'>flickr</a>
+		</p>
+		<h6>Repositories</h6>
+		<ul style='list-style:none; font-size:12px; line-height:1.5em; padding:0;'>
+			<li>
+				<strong><a href='http://github.com/towski/dfhack'>dfhack</a></strong><br/>
+				<span>Some added features to DFHack</span>
+			</li>
+			<li>
+				<strong>this blog</strong><br/>
+				<span>git clone git://towski.no-ip.biz/fort.git &nbsp; &nbsp; &nbsp; </span>
+			</li>
+		</ul>
+		<h6>My Apps</h6>
+		<ul style='list-style:none; font-size:12px; line-height:1.5em; padding:0;'>
+			<li> <a href='http://skylines.herokuapp.com/users/towski'>Skylines</a> </li>
+    </ul>
+	</div>
+</div>
+
+<div style='font-size:12px; margin-top:230px;'> <!--position:absolute; bottom: 10px; font-size:12px; margin: 0 auto; width: 100%' >-->
+	<center>
+	<p>This is hosted on my computer running Debian, with <a href='http://duckdns.org/'>DuckDNS</a>, port forwarding, and nginx.</p>
+	<p>I mean, how hard is it to type out (an ugly) web page manually?  </p>
+	<p>Contact me on twitter <a href='http://twitter.com/towski'>towski</a> or email <a href="mailto:towski@gmail.com">towski at gmail</a></p>
+	<p>
+		<a href='http://www.last.fm/user/towski'>last.fm</a> | <a href="https://www.facebook.com/thegreatTowski">Facebook</a> | <a href="https://www.github.com/towski">Github</a> | <a href="http://www.flickr.com/photos/towski">Flickr</a> | <a href="http://www.reddit.com/user/towski">Reddit</a> | 
+		<a href='http://jimmyr.com'>Aggregate</a>
+	</p>
+	</center>
+</div>
+
+<div style='position:absolute; width:10px; top: 0px;left:0px; height:422px; z-index: 10; background: white'></div>
+<div style='position:absolute; width:10px; top: 0px;left:210px; height:422px; z-index: 10; background: white'></div>
+<script>
+
+	function prettyLinks(){
+    var links = document.getElementsByTagName("a");
+    for ( var i = 0; i < links.length; i++ ){
+      if ( links[i].title ) {
+          var date = prettyDate(links[i].title);
+          if ( date )
+           links[i].innerHTML = date;
+			}
+		}
+	}
+	prettyLinks();
+
+	function prevent_unload(){
+		window.onbeforeunload = function() {  return false }
+	}
+
+	function query(xpath, callback){
+		var results = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+		for ( var i=0 ; i < results.snapshotLength; i++ ) {
+			if(callback){
+			  callback(results.snapshotItem(i))
+			} else {
+				console.log(results.snapshotItem(i))
+			}
+		}
+	}
+</script>
+</body>

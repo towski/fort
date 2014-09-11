@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 26)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+Was horsing around a bit too much with Debian Testing and Unstable, and managed to break everything. But I backed everything
+up before I started messing around, so it was the first test of my backup system. I rsync my whole filesystem to a USB
+harddrive, with the assumption that I can just rsync it back if anything goes too wrong. But would it work?
+</p>
+<p>
+I soon learned that I wasn't sending the --delete command to rsync, so I wasn't ever deleting files on my backup. Hopefully
+that wouldn't be a big deal, since I've only been backing up for about a week. However, I wasn't sure how the grub stuff
+would work, since I seemed to hose it pretty bad. 
+</p>
+<p>Thanksfully, just chrooting to my freshly rsync'ed harddrive and doing grub-install /dev/sda1 worked like a charm. Everything
+was back to last night, so I could do a better job upgrading my system to testing. Now I'm upgraded to Debian testing, and
+everything seems to work fine.
+</p>
+<p>All because I wanted to install a new linux library for my ipod, to fix an issue. </p>

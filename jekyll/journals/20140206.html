@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 6)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140205.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140207.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>Spent the day compiling and recompiling C code. I was trying to get ruby into a form that golang can read, so I could write
+a ruby interpretter in go. It was easy to get into the C code and build something that would write the AST walker. But 
+unforetunately it might be hard to give access to the AST nodes in Go. It was fun playing around with bison, 
+but the version I was using was really old. It would be hard to build something that could handle more modern ruby.
+</p>
+
+<p>Reading more recent articles lead me to a javascript and flash ruby bridge.  It uses the bytecode that ruby 1.9.3 can output to build a runtime. 
+You can grab the bytecode with this:</p>
+
+<code>
+ seq = RubyVM::InstructionSequence.compile_file("./myapp.rb")
+ seq.disassemble
+</code>
+
+<p> That might make things much easier. Tomorrow I will try and execute that bytecode in go.</p>

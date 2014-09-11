@@ -1,0 +1,101 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 10)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140209.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140211.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>
+Felt a little overwhelmed today so I drifted into my own favorite hobby, overthinking the internet. 
+I admire people who have amassed incredible power through the internet. 
+I enjoy using the internet to enhance my own powers. 
+But the average internet user is probably feeling their power slip away.
+Probably because we are putting our lives into other peoples hands more and more. 
+</p>
+
+<p>In my own life, the internet has been a good and a bad thing. 
+I have felt a loss of control in my own life, no matter how much I tried to contribute
+back to the intenet. Plus I've always valued personal understanding,
+so I've built up as large a personal understanding of the world as I could. 
+But the internet can be disruptive to that understanding. Who is asking the deep questions
+to strangers? What do you see when you look at the world?
+</p>
+
+<p>I have always sought to explore and experience "realness". More than money or sex or alcohol, realness has
+always replenished my own personal connection with the world. 
+Those people and places that have created their own identity, and fought to maintain themselves despite the constant tug
+of the world.  I can tell by looking at a place if it has any identity left.
+You get a deeply human feeling connecting with those places. 
+Like seeing an old disco, and imagining the lives and people that used to go there. 
+</p>
+
+<p>You can learn a lot by actually visiting a place, and seeing it in context. 
+When I visited Martin Luther King's grave I was surprised at how disconnected it seemed.
+It made me realize how alienated his dream still is, and how difficult it is to convey
+the meaning of his life. And all places eventually lose their own identity, and people can no longer absorb their meaning. 
+The Eiffel Tower from one angle is basically just another monument in Vegas. 
+</p>
+
+<p>
+People are also trying to build up their own identities.  With their scars and frustrations. Only the select few make
+it through life without any major tragedies. I can't identity anymore with people for whom everything has always gone 
+right. Personally, I don't think that's anything to admire. It just means you never tried anything interesting.
+</p>
+<p>
+The internet has changed this a little. What is my own personal experience worth anymore?
+I used to have my own story, my own identity. How do I convey to you the deep feelings I've had?
+I miss the personal connections I would make based on my own experiences.
+</p>
+
+<p>Sometimes I feel surrounded by people for whom personal experience isn't valuable. 
+People who don't ask questions, or dig into other peoples lives. 
+Perhaps my own personal flaw is that I would always trade everything for something real. 
+I can't settle for the facade because I know that there is nothing on the other side. 
+Realness is only contained in a real place, in a real person.
+The internet doesn't have this fullness. The internet is just a space for temporary things. 
+</p>
+
+<p>And I've always felt obligated to follow my own feelings. Because no matter what, you are chained to your own experiences. 
+The internet leaves a lot of people without feeling. And I always thought we should celebrate feelings.
+But if your feelings are shallow, what's to celebrate? I always value the people who have felt the most, good and bad.
+When I no longer had any feelings to guide me, I lost control of my own life. 
+How do we break down the emotional barriers of the internet? I feel like Reddit does a good job, but it's
+still essentially anonymous. How do we reward people for having a deeply meaningful existence?
+</p>

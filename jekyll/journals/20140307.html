@@ -1,0 +1,134 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h4 id='date_title'>
+Reading Hemingway makes me feel drunk
+</h4></center>
+<a id='previous_link' href='/journals/20140216.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a id='next_link' href='/journals/20140218.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+<script>
+  function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+  }
+
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 2, 7)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+  var previous_day = today 
+  previous_day.setDate(previous_day.getDate() - 1)
+  var journal_file = previous_day.getFullYear() + pad(previous_day.getMonth() + 1, 2) + pad(previous_day.getDate(), 2)
+	var previous_link = document.getElementById('previous_link');
+  previous_link.href = "/journals/" + journal_file + ".html"
+  var next_day = today 
+  next_day.setDate(next_day.getDate() + 2)
+  var journal_file_next = next_day.getFullYear() + pad(next_day.getMonth() + 1, 2) + pad(next_day.getDate(), 2)
+	var next_link = document.getElementById('next_link');
+  next_link.href = "/journals/" + journal_file_next + ".html"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+
+<p>
+People are always drawing lines between them and other people. Arbitrary lines. This person can do that. This person is like this. They do this 
+therfore they are this way. The truth is terrifying. People are not characters. They do not know their own state. They do not
+behave consistently. They don't know about the world outside themselves. They do not think. 
+</p>
+
+<p>Yet everyone has the same conscious. Our minds work the same at a low level. We are largely all the same. Yet we try to make ourselves
+seem different. There people that get deep into your mind, and how they do that is very simple. They go deep into themselves. The people
+that deny this sameness are closed to themselves. They deny their own reality. </p>
+
+<p>When you focus on these differences, trying to separate yourself from other people, that's when you ruin your own ability to 
+share in this place. Efforts to simulate this connection, through phones, will not bring you any closer to other people.
+You can only connect with people who connect with themselves. Who are fundamentally united. </p>
+
+<p>To destroy this unity is to destroy yourself. To insist that you are different.  </p>
+
+<p>You can twist yourself up, and wrinkle your own smoothness. You will want to go back to that smooth feeling. That harmony. That
+peacefulness. Natural calm. You will destroy yourself and think that you will never get back to smoothness. To calm. </p>
+
+<p>The smooth experience is preferable to the rough turbulence. Yet, somehow the smooth experience can be a pathway
+to oblivion. A smooth ride is a path to oblivion. Like a raft over the river styx. </p>
+
+<p>The world is not smooth and clean. Perhaps we are making it more so. But perhaps by making it more so we are agitating ourselves.
+For we are part of it. It is us. For every rape and murder you are the criminal. You are trying to cut this out of yourself.
+You are curious about it. You are seeking new thrills. You do not listen to yourself.</p>
+
+<p>Reality is terribly frightening. It is loud. And it doesn't fully make sense. I see why people shy away from it. Invent
+other worlds in which to live. But we are built for reality. We are built to feel. 
+</p>
+<p>
+I recall how frightening my experiences in Chicago <a href='http://skylines.herokuapp.com/users/towski'>were</a>.
+It scared me to watch Chicago change in front of me. I was scurrying not to get caught under a collapsing building with the shadow on me
+as it fell. 
+But also Portland at a certain point was frightening. Frighteningly quiet. Frighteningly rural. 
+</p>
+<p>
+Things that don't make sense are scary. Especially when there is never any hope of them ever making sense. 
+Events that disappear into the past without any conclusion. 
+You pour sand over everything and are left with a painting. 
+You compete against people that somehow have a better understanding that they won't share. 
+</p>
+<p>
+I finally understand why people with safety can't understand the difference
+between good and bad. Because it's all the same to them. You don't have much empathy for things you've
+never experienced. Or even interest. Why does it even matter, when we are sleeping peacefully. 
+</p>
+<p>
+The intellectual world is also frightening. How do you live without feeling? What good is alcohol when you feel nothing?
+</p>
+<p>
+I had been drinking. And in my drink everything seemed the same. I no longer had any hunger. I would eat
+not because I was hungry, but because there would be pain if I didn't eat. Life was a neverending series of
+work, sustaining yourself for no reason. There didn't seem to be a reason anymore. No one else seemed worth
+the investment. No one else had bothered to check the facts. Or could see why discussing them was so important.  </p>
+<p>
+My only desire to get a reaction in people was only
+ending badly. I could not ellicit the interest in other people without theatrics. And I hate theatrics. The source material 
+is important for getting an effect in people. What use is explaining something to people who will never understand. 
+Who are not interested in understanding. 
+</p>
+<p>
+It's my maladie that I never know what I'm seeing when I look at it. I have to see it in action. Theoretically a spoon
+may be used in a certain way. But if I don't see it used, I wouldn't have the vaguest guess how to use it.
+</p>
+<p>
+If Paris is no longer Paris, then where is? Reading Hemingway makes me feel drunk
+</p>
+<p>
+Unrelated: 
+Don't intellectualize anything until you're 30. It's a waste of time. In your 20s, take in as much as you can. That is your
+unique experience that no other person has, or ever will have. It is smooth, like an oar stroke on water. You can watch the ripples
+of the water. 
+</p>

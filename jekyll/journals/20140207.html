@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+    body {
+        width: 80%;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+				line-height: 1.5em;
+				//font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+				//font-size: 1.15em;
+				//color: rgb(34, 34, 34);
+				//letter-spacing: -0.2px;
+				//background-color: #eee;
+    }
+</style>
+</head>
+<body>
+<br/>
+<center><h1 id='date_title'></h1></center>
+<script>
+	function stringEnding(date_number){
+		if(date_number == 1 || (date_number % 10 == 1 && date_number > 11) ){
+			return "st"
+		} else if(date_number == 2 || (date_number % 10 == 2 && date_number > 12)){
+			return "nd"
+		} else if (date_number == 3){
+			return "rd"
+		} else {
+			return "th"
+		}
+	}
+
+	var today = new Date(2014, 1, 7)
+	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+	var element = document.getElementById('date_title');
+	var date_string = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + " " + today.getDate() + stringEnding(today.getDate())
+	element.innerHTML = date_string
+	document.title = date_string + ", 2014"
+</script>
+<a href='/' style='position:fixed; top:10px; left:10px; font-size:20px'>Home</a>
+<a href='/journals/20140206.html' style='position:fixed; top:300px; left:10px; font-size:12px'>Previous</a>
+<a href='/journals/20140208.html' style='position:fixed; top:300px; right:10px; font-size:12px'>Next</a>
+
+<p>
+I am successfully parsing some basic ruby bytecode! And running it in Go! Go is actually not a bad language for the task, although
+my string parsing code could really use some work. I handled class definitions, but I need to handle method definitions and a
+stack. This is fun: <a href='https://www.github.com/towski/goruby'>goruby</a>.
+</p>
+
+<p>I need to start linking all the notable websites I looked at today on my quest. Mostly learning how to do things in go. I was impressed
+that someone on Stack Overflow answered a question about the ruby bytecode, as documentation on each code is a little lacking. However,
+the basic functionality isn't too hard. The complication may get worse and worse, but so far it's been manageable. </p>

@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Command line tools"
+date:   2014-09-10 16:48:17
+categories: jekyll update
+---
+I'm back. 
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+[Jekyll docs][jekyll]
+
+[jekyll]:      http://jekyllrb.com
